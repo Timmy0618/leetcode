@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  phpapache:
+    container_name: leetcode-php
+    image: wujidadi/ap:1.4-arm
+    ports:
+      - "80:80"
+    volumes:
+      - ./php:/var/www/html
+
+  python:
+    container_name: leetcode-python
+    build: 
+      context: ./python
+      dockerfile: dockerfile
+    ports:
+      - "81:8000"
+    volumes:
+      - ./python:/usr/src/app
